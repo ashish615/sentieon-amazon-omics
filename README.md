@@ -32,12 +32,14 @@ docker build --platform linux/amd64 --build-arg SENTIEON_VERSION=202112.07 -t se
 Create a private repository in AWS ECR
 
 ```bash
-aws ecr create-repository --repository-name sentieon
+aws ecr create-repository --repository-name single-cell-pipeline
 ```
 
 Login to the registry
 
 ```bash
+aws s3api list-buckets --query Owner.ID --output text
+#Above Command shows account-id
 aws ecr get-login-password --region <region-name> | docker login --username AWS --password-stdin <account-id>.dkr.ecr.<region-name>.amazonaws.com
 ```
 
