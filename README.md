@@ -48,7 +48,7 @@ Login to the registry
 aws s3api list-buckets --query Owner.ID --output text
 #Above Command shows account-id
 aws ecr get-login-password --region <region-name> | docker login --username AWS --password-stdin <account-id>.dkr.ecr.<region-name>.amazonaws.com
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin <from GUI geth the url/single-cell-pipline>
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin <>.dkr.ecr.us-east-2.amazonaws.com/singlecell/
 ```
 
 Tag the custom Sentieon container and push the container image to the repository
@@ -56,6 +56,9 @@ Tag the custom Sentieon container and push the container image to the repository
 ```bash
 docker tag sentieon:omics-1 <account-id>.dkr.ecr.<region-name>.amazonaws.com/sentieon:omics-1
 docker push <account-id>.dkr.ecr.<region-name>.amazonaws.com/sentieon:omics-1
+
+sudo docker tag scanpy_python1:latest <>.dkr.ecr.us-east-2.amazonaws.com/singlecell/scanpy_python1:latest
+sudo docker push <>.dkr.ecr.us-east-2.amazonaws.com/singlecell/scanpy_python1:latest
 ```
 
 Grant the Omics service permission to interact with the repository using the policy in the `assets` directory
