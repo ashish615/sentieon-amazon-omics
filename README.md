@@ -14,6 +14,13 @@ To use the license server for Amazon Omics, you will need to provide Sentieon (s
 ### Requirements
 * Docker cli or another container implementation (Podman, etc.)
 * AWS CLI v2
+### Step 0:
+aws configure
+AWS Access Key ID [****************SPEQ]: 
+AWS Secret Access Key [None]: 
+Default region name [us-east-2]:
+Default output format [None]:
+
 
 ### Step 1: build the Sentieon container image
 
