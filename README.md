@@ -57,8 +57,8 @@ Tag the custom Sentieon container and push the container image to the repository
 docker tag sentieon:omics-1 <account-id>.dkr.ecr.<region-name>.amazonaws.com/sentieon:omics-1
 docker push <account-id>.dkr.ecr.<region-name>.amazonaws.com/sentieon:omics-1
 
-sudo docker tag scanpy_python1:latest <>.dkr.ecr.us-east-2.amazonaws.com/singlecell/scanpy_python1:latest
-sudo docker push <>.dkr.ecr.us-east-2.amazonaws.com/singlecell/scanpy_python1:latest
+sudo docker tag scanpy_python1:latest <>.dkr.ecr.us-east-2.amazonaws.com/singlecell:latest
+sudo docker push <>.dkr.ecr.us-east-2.amazonaws.com/singlecell:latest
 ```
 
 Grant the Omics service permission to interact with the repository using the policy in the `assets` directory
