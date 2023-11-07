@@ -61,6 +61,14 @@ sudo docker tag scanpy_python1:latest <>.dkr.ecr.us-east-2.amazonaws.com/singlec
 sudo docker push <>.dkr.ecr.us-east-2.amazonaws.com/singlecell:latest
 ```
 
+```bash
+#Extra
+aws s3 mb s3://indiaashish --region us-east-2
+make_bucket: indiaashish
+
+
+```
+
 Grant the Omics service permission to interact with the repository using the policy in the `assets` directory
 
 ```bash
