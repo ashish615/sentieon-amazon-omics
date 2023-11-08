@@ -48,7 +48,7 @@ Login to the registry
 aws s3api list-buckets --query Owner.ID --output text
 #Above Command shows account-id
 aws ecr get-login-password --region <region-name> | docker login --username AWS --password-stdin <account-id>.dkr.ecr.<region-name>.amazonaws.com
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin <>.dkr.ecr.us-east-2.amazonaws.com/singlecell/
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin <copy from GUI of single-cell-pipeline uri>
 ```
 
 Tag the custom Sentieon container and push the container image to the repository
