@@ -59,6 +59,10 @@ docker push <account-id>.dkr.ecr.<region-name>.amazonaws.com/sentieon:omics-1
 
 sudo docker tag scanpy_python1:latest <>.dkr.ecr.us-east-2.amazonaws.com/singlecell:latest
 sudo docker push <>.dkr.ecr.us-east-2.amazonaws.com/singlecell:latest
+
+#to pull images
+docker pull <GUI URI>.dkr.ecr.us-east-2.amazonaws.com/singlecell:latest
+ 
 ```
 
 ```bash
