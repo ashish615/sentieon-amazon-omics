@@ -18,7 +18,7 @@ To use the license server for Amazon Omics, you will need to provide Sentieon (s
 aws configure
 AWS Access Key ID [****************SPEQ]: 
 AWS Secret Access Key [None]: 
-Default region name [us-east-2]:
+Default region name [us-east-1]:
 Default output format [None]:
 
 
@@ -48,7 +48,7 @@ Login to the registry
 aws s3api list-buckets --query Owner.ID --output text
 #Above Command shows account-id
 aws ecr get-login-password --region <region-name> | docker login --username AWS --password-stdin <account-id>.dkr.ecr.<region-name>.amazonaws.com
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin <copy from GUI of single-cell-pipeline uri>
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <copy from GUI of single-cell-pipeline uri>
 ```
 
 Tag the custom Sentieon container and push the container image to the repository
@@ -57,18 +57,18 @@ Tag the custom Sentieon container and push the container image to the repository
 docker tag sentieon:omics-1 <account-id>.dkr.ecr.<region-name>.amazonaws.com/sentieon:omics-1
 docker push <account-id>.dkr.ecr.<region-name>.amazonaws.com/sentieon:omics-1
 
-sudo docker tag scanpy_python1:latest <>.dkr.ecr.us-east-2.amazonaws.com/singlecell:latest
-sudo docker push <>.dkr.ecr.us-east-2.amazonaws.com/singlecell:latest
+sudo docker tag scanpy_python1:latest <>.dkr.ecr.us-east-1.amazonaws.com/single-cell-pipeline:latest
+sudo docker push <>.dkr.ecr.us-east-1.amazonaws.com/single-cell-pipeline:latest
 
 #to pull images
-docker pull <GUI URI>.dkr.ecr.us-east-2.amazonaws.com/singlecell:latest
+docker pull <GUI URI>.dkr.ecr.us-east-2.amazonaws.com/single-cell-pipeline:latest
  
 ```
 
 ```bash
 #Extra
-aws s3 mb s3://indiaashish --region us-east-2
-make_bucket: indiaashish
+aws s3 mb s3://single-cell-data --region us-east-1
+make_bucket: single-cell-data
 
 
 ```
@@ -76,7 +76,7 @@ make_bucket: indiaashish
 Grant the Omics service permission to interact with the repository using the policy in the `assets` directory
 
 ```bash
-aws ecr set-repository-policy --repository-name sentieon --policy-text file://assets/omics-ecr-repository-policy.json
+aws ecr set-repository-policy --repository-name single-cell-data --policy-text file://assets/omics-ecr-repository-policy.json
 ```
 
 ### Step 3: grant the Omics service role read access to the Sentieon license bucket in AWS s3
