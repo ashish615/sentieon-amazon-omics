@@ -14,7 +14,10 @@ To use the license server for Amazon Omics, you will need to provide Sentieon (s
 ### Requirements
 * Docker cli or another container implementation (Podman, etc.)
 * AWS CLI v2
-### Step 0:
+  - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  - unzip awscliv2.zip
+  - sudo ./aws/install
+### Step 0:(Goto IAM in aws and create access key and secret access key)
 aws configure
 AWS Access Key ID [****************SPEQ]: 
 AWS Secret Access Key [None]: 
@@ -34,7 +37,7 @@ cd ./container
 docker build --platform linux/amd64 --build-arg SENTIEON_VERSION=202112.07 -t sentieon:omics-1 -f sentieon_omics.dockerfile .
 ```
 
-### Step 2: push the container image to an Amazon ECR private repository
+### Step 2: push the container image to an Amazon ECR private repository (follow from gui commands)
 
 Create a private repository in AWS ECR
 
