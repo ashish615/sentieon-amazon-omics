@@ -81,7 +81,7 @@ Grant the Omics service permission to interact with the repository using the pol
 ```bash
 aws ecr set-repository-policy --repository-name single-cell-data --policy-text file://assets/omics-ecr-repository-policy.json
 ```
-
+YOU can follow **"View push commands"** from gui to push the images
 ### Step 3: grant the Omics service role read access to the Sentieon license bucket in AWS s3
 
 As part of the license validation, the `omics_credentials.sh` script will obtain a license token from AWS s3 for your workflow. Adding the following policy to your Amazon Omics service role will grant the workflow read access to files in the license bucket for your region:
